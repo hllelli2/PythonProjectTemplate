@@ -12,6 +12,7 @@ except ModuleNotFoundError or ImportError:
 def get_python_version():
     """Get the python version from .python-version file unless it is github actions."""
     if "GITHUB_ACTIONS" in os.environ:
+        print(os.environ)
         return os.environ["PYTHON_VERSION"]
     return Path(".python-version").read_text().strip()
 
