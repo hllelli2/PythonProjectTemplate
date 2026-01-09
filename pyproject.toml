@@ -17,6 +17,7 @@ dev = [
   "coverage",
   "isort",
   "mypy",
+  "pydantic[mypy]",
   "pytest",
   "pytest-cov",
   "pytest-pretty",
@@ -35,7 +36,6 @@ omit = [
   "noxfile.py",
   # add other files or directories to omit from coverage here
 ]
-
 
 [tool.mypy]
 check_untyped_defs = true
