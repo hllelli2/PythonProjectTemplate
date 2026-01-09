@@ -33,12 +33,14 @@ jobs:
         run: |
           chcp 65001
           nox -s chores
+        env:
+          PYTHONENCODING: utf-8
 
       - name: Run chores (non-Windows)
         if: runner.os != 'Windows'
         run: |
           nox -s chores
-          
+
       - name: Run tests
         run: |
           nox -s tests
