@@ -80,19 +80,6 @@ def black_fixes(session):
 
 
 @nox.session(python=PYTHON_VERSION)
-def dapperdata_fixes(session):
-    uv(session, "sync", "--group", "dev")
-    session.run(
-        "python",
-        "-m",
-        "dapperdata.cli",
-        "pretty",
-        ".",
-        "--no-dry-run",
-    )
-
-
-@nox.session(python=PYTHON_VERSION)
 def tomlsort_fixes(session):
     uv(session, "sync", "--group", "dev")
     session.run(
@@ -118,7 +105,6 @@ def chores(session):
     session.notify("isort_fixes")
     session.notify("ruff_fixes")
     session.notify("black_fixes")
-    session.notify("dapperdata_fixes")
     session.notify("tomlsort_fixes")
 
 
@@ -143,13 +129,6 @@ def black_check(session):
 def mypy_check(session):
     uv(session, "sync", "--group", "dev")
     session.run("mypy", PACKAGE_NAME)
-
-
-@nox.session(python=PYTHON_VERSION)
-def dapperdata_check(session):
-    print(PYTHON_VERSION)
-    uv(session, "sync", "--group", "dev")
-    session.run("python", "-m", "dapperdata.cli", "pretty", ".")
 
 
 @nox.session(python=PYTHON_VERSION)
@@ -181,7 +160,6 @@ def tests(session):
     session.notify("ruff_check")
     session.notify("black_check")
     session.notify("mypy_check")
-    session.notify("dapperdata_check")
     session.notify("tomlsort_check")
     session.notify("isort_check")
     session.notify("pytest")

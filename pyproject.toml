@@ -15,7 +15,6 @@ dev = [
   "black",
   "build",
   "coverage",
-  "dapperdata",
   "isort",
   "mypy",
   "pytest",
@@ -37,16 +36,6 @@ omit = [
   # add other files or directories to omit from coverage here
 ]
 
-[tool.dapperdata]
-exclude_paths = [
-  ".nox",
-  ".venv",
-  "__pycache__",
-  ".git",
-  "__pycache__",
-  ".github",
-  ".vscode",
-]
 
 [tool.mypy]
 check_untyped_defs = true
