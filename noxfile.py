@@ -12,8 +12,9 @@ except ModuleNotFoundError or ImportError:
 def get_python_version():
     """Get the python version from .python-version file unless it is github actions."""
     if "GITHUB_ACTIONS" in os.environ:
-        print(os.environ)
-        return os.environ["PYTHON_VERSION"]
+        # 'Python_ROOT_DIR': '/opt/hostedtoolcache/Python/3.10.19/x64'
+
+        return Path(os.environ["Python_ROOT_DIR"]).parent.name
     return Path(".python-version").read_text().strip()
 
 
