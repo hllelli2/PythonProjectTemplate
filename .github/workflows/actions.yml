@@ -28,11 +28,17 @@ jobs:
           python -m pip install --upgrade pip
           pip install uv nox
 
-      - name: Run chores (lint, format, etc.)
+      - name: Run chores (Windows)
+        if: runner.os == 'Windows'
         run: |
           chcp 65001
           nox -s chores
-          if: runner.os == 'Windows' # Ensure UTF-8 encoding on Windows
+
+      - name: Run chores (non-Windows)
+        if: runner.os != 'Windows'
+        run: |
+          nox -s chores
+          
       - name: Run tests
         run: |
           nox -s tests
