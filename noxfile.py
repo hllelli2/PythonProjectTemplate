@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import nox
@@ -8,6 +9,13 @@ except ModuleNotFoundError or ImportError:
     import tomli as tomllib
 
 
+def get_python_version():
+    """Get the python version from .python-version file unless it is github actions."""
+    if "GITHUB_ACTIONS" in os.environ:
+        return os.environ["PYTHON_VERSION"]
+    return Path(".python-version").read_text().strip()
+
+
 def get_package_name():
     """Get the package name from pyproject.toml."""
     pyproject_path = Path("pyproject.toml")
@@ -15,7 +23,7 @@ def get_package_name():
     return pyproject_data["project"]["name"].replace("-", "_")
 
 
-PYTHON_VERSION = Path(".python-version").read_text().strip()
+PYTHON_VERSION = get_python_version()
 PACKAGE_NAME = get_package_name()
 
 # Default: reuse uv-managed virtualenvs for speed
