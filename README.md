@@ -8,6 +8,7 @@ Template for Python projects
  - Set up Pyproect . toml
  Virtual environemtn management - I like to use mamba
  - Pre-commit hooks
+ - github actions
  - pytest read to be setup with actions
 
  - ide setting such as 4 or 2 spaces
@@ -34,6 +35,7 @@ Prerequisites:
 - pipx
 - uv
 - nox
+- pre-commit
 
 
 nox -s install 
