@@ -101,11 +101,14 @@ def chores(session):
     """
     Equivalent of:
       make chores
+
+    This runs all formatting and linting fixes but also mypy checks.
     """
     session.notify("isort_fixes")
     session.notify("ruff_fixes")
     session.notify("black_fixes")
     session.notify("tomlsort_fixes")
+    session.notify("mypy_check")
 
 
 #
