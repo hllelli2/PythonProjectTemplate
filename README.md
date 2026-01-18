@@ -13,10 +13,11 @@ pipx is a tool to help you install and run Python applications in isolated envir
 
 1. Install pipx if you haven't already. You can find instructions [here](https://pipxproject.github.io/pipx/installation/).
 
-2. Use pipx to install nox and uv (Universal Versioner):
+2. Use pipx to install nox, uv (Universal Versioner), and pre-commit:
+Note: The `[pbs]` extra for nox includes additional plugins, allowing it to download Python.
 
 ```bash
-pipx install nox uv pre-commit
+pipx install nox[pbs] uv pre-commit
 ```
 
 3. Now, we can use nox to set up our development environment. Run the following commands in your terminal:
