@@ -56,7 +56,11 @@ This command will update the lock files for your dependencies to ensure you have
 
 This command will install the pre-commit hooks defined in the `.pre-commit-config.yaml` file. This helps maintain code quality by running checks before each commit.
 
-That's it! You now have a fully set up development environment for your Python project. You can start coding, and the tools will help you maintain code quality and consistency.
+That's it! You now have a fully set up development environment for your Python project. You can start coding, and the tools will help you maintain code quality and consistency. When you want to run Python scripts, please use:
+
+```bash
+uv run python ./path/to/myscript.py
+```
 
    
 
