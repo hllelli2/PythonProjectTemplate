@@ -61,5 +61,4 @@ exclude = [
   # add other files or directories to exclude from linting here
 ]
 
-[tool.uv]
-exclude-newer = "1 week"
+
